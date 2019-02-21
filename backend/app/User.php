@@ -38,7 +38,7 @@ class User extends Authenticatable implements JWTSUbject
         'email_verified_at' => 'datetime',
     ];
 
-    use Notifiable;
+     use Notifiable;
 
     // Rest omitted for brevity
 
@@ -60,5 +60,9 @@ class User extends Authenticatable implements JWTSUbject
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    public function setpasswordAttribute($value){
+      $this->attributes['password'] = bcrypt($value);
     }
 }
