@@ -29,4 +29,21 @@ Route::group([
     Route::post('passwordResetLink', 'ResetPasswordController@sendEmail');
     Route::post('resetPassword', 'ChangePasswordController@process');
 
+    Route::post('/client', [
+        'uses' => 'ClientController@postClient'
+    ]);
+    Route::get('/clients', [
+       'uses' => 'ClientController@getClients'
+    ]);
+    Route::put('/client/{id}', [
+        'uses' => 'ClientController@putClient'
+    ]);
+    Route::delete('/client/{id}', [
+        'uses' => 'ClientController@deleteClient'
+    ]);
+    
+    Route::get('/clients/{id}', [
+        'uses' => 'ClientController@getClient'
+    ]);
+
 });
